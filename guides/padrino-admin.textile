@@ -61,8 +61,8 @@ enable :store_location
 set    :login_page, "/login"
 
 access_control.roles_for :any do |role|
-role.project "/customer/orders"
-role.project "/cart/checkout"
+role.protect "/customer/orders"
+role.protect "/cart/checkout"
 end
 end
 </pre>
@@ -95,12 +95,12 @@ role.allow "/sessions"
 end
 
 access_control.roles_for :admin do |role|
-role.project :settings, "/settings"
+role.protect :settings, "/settings"
 end
 
 access_control.roles_for :editor do |role|
-role.project :posts, "/posts"
-role.project :categories, "/categories"
+role.protect :posts, "/posts"
+role.protect :categories, "/categories"
 end
 end
 </pre>
